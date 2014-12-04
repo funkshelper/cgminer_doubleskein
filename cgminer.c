@@ -1492,7 +1492,7 @@ static struct opt_table opt_config_table[] = {
 #ifdef USE_SKEIN
     OPT_WITHOUT_ARG("--skein",
             opt_set_bool, &opt_skein,
-            "Use the skein algorithm for mining (skeincoin)"),
+            "Use the skein algorithm for mining (woodcoin)"),
 #endif
 #ifdef USE_HEAVY
     OPT_WITHOUT_ARG("--heavy",

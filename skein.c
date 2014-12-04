@@ -219,7 +219,8 @@ void skein_regenhash(struct work *work)
     unsigned char hash1[64];
     flip80(be_data, work->data);
     skein(hash1, (const unsigned char *)be_data, 80);
-    sha256(hash1, 64, work->hash);
+   // sha256(hash1, 64, work->hash);
+    skein(work->hash, hash1, 80);  // turning this to double skein for woodcoin
 }
 
 bool skein_prepare_work(struct thr_info __maybe_unused *thr, struct work *work)
