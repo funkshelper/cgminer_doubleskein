@@ -612,7 +612,7 @@ __kernel void search(const ulong state0, const ulong state1, const ulong state2,
 
     ulong2 msg = as_ulong2((uint4)(data16, data17, data18, SWAP32(nonce)));
 
-    if(sha256_res(as_uint16(skein512_mid_impl(state, msg))) /*& 0xf0ffffff */  & 0xc0ffffff)
+    if( skein512_mid_impl(state, skein512_mid_impl(state, msg)) /*& 0xf0ffffff */  & 0xc0ffffff)
         return;
     SETFOUND(nonce);
 }
